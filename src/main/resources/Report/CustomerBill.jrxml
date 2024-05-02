@@ -3,8 +3,12 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="CustomerBill" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b062df8a-b70a-4f0f-8bb3-e769c82c36f6">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter (8)"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="314"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="678"/>
+	<parameter name="CustomerID" class="java.lang.String"/>
+	<parameter name="Total" class="java.lang.String"/>
 	<queryString language="SQL">
-		<![CDATA[select * from  gdse69.customer]]>
+		<![CDATA[select * from  gdse69.customer where  gdse69.customer.id =  $P{CustomerID} ]]>
 	</queryString>
 	<field name="id" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="id"/>
@@ -99,10 +103,6 @@
 				</textElement>
 				<text><![CDATA[0257896532]]></text>
 			</staticText>
-			<image>
-				<reportElement x="-20" y="6" width="153" height="62" uuid="5d84a65e-8812-4adf-957b-d31b7eed5c17"/>
-				<imageExpression><![CDATA["/Users/apple/Documents/My/GDSE/IJSE Logos/Ijse_logo.png"]]></imageExpression>
-			</image>
 		</band>
 	</title>
 	<pageHeader>
@@ -162,6 +162,10 @@
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<text><![CDATA[age]]></text>
 			</staticText>
+			<textField>
+				<reportElement x="-10" y="10" width="79" height="30" uuid="e3524382-60ed-4396-9da1-9857ef3e1e43"/>
+				<textFieldExpression><![CDATA[$P{CustomerID}]]></textFieldExpression>
+			</textField>
 		</band>
 	</columnHeader>
 	<detail>
@@ -197,7 +201,12 @@
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="45" splitType="Stretch"/>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="420" y="20" width="100" height="30" uuid="520868d0-f8eb-4f95-91ed-75b5661bf442"/>
+				<textFieldExpression><![CDATA[$P{Total}]]></textFieldExpression>
+			</textField>
+		</band>
 	</columnFooter>
 	<pageFooter>
 		<band height="84" splitType="Stretch">

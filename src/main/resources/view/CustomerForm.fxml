@@ -24,16 +24,16 @@
       <JFXTextField fx:id="txtSalary" labelFloat="true" layoutX="112.0" layoutY="323.0" prefHeight="29.0" prefWidth="250.0" promptText="Customer Salary" />
       <JFXTextField fx:id="txtAge" labelFloat="true" layoutX="475.0" layoutY="323.0" prefHeight="29.0" prefWidth="250.0" promptText="Customer Age" />
       <TableView fx:id="tblCustomer" layoutX="17.0" layoutY="465.0" prefHeight="215.0" prefWidth="823.0">
-        <columns>
-          <TableColumn fx:id="colID" prefWidth="73.0" text="ID" />
-          <TableColumn fx:id="colName" prefWidth="117.0" text="Name" />
+         <columns>
+            <TableColumn fx:id="colID" prefWidth="73.0" text="ID" />
+            <TableColumn fx:id="colName" prefWidth="117.0" text="Name" />
             <TableColumn fx:id="colAddress" prefWidth="135.0" text="Address" />
             <TableColumn fx:id="colContact" prefWidth="114.0" text="Contact" />
             <TableColumn fx:id="colNIC" prefWidth="96.0" text="NIC" />
             <TableColumn fx:id="colEmail" prefWidth="108.0" text="Email" />
             <TableColumn fx:id="colSalary" prefWidth="79.0" text="Salary" />
             <TableColumn fx:id="colAge" prefWidth="100.0" text="Age" />
-        </columns>
+         </columns>
       </TableView>
       <JFXButton fx:id="btnSave" layoutX="87.0" layoutY="390.0" onAction="#btnSaveOnAction" prefHeight="36.0" prefWidth="113.0" ripplerFill="BLACK" style="-fx-background-color: #e12463;" text="Save" textFill="WHITE">
          <font>

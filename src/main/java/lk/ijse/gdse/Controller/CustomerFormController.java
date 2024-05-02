@@ -27,7 +27,10 @@ import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import net.sf.jasperreports.view.JasperViewer;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class CustomerFormController {
     @FXML
@@ -229,9 +232,18 @@ public class CustomerFormController {
         JasperDesign jasperDesign = JRXmlLoader.load("src/main/resources/Report/CustomerBill.jrxml");
         JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
 
-        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, DBConnection.getInstance().getConnection());
+        Map<String,Object> data = new HashMap<>();
+        data.put("CustomerID",txtID.getText());
+        data.put("Total",getTotal());
+
+        JasperPrint jasperPrint =
+                JasperFillManager.fillReport(jasperReport, data, DBConnection.getInstance().getConnection());
         JasperViewer.viewReport(jasperPrint,false);
 
+    }
+
+    public String getTotal(){
+        return "5000";
     }
 }
 

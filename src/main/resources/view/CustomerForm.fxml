@@ -15,12 +15,12 @@
             <Font name="Poppins Regular" size="26.0" />
          </font>
       </Text>
-      <JFXTextField fx:id="txtID" labelFloat="true" layoutX="112.0" layoutY="103.0" onAction="#btnSearch" prefHeight="29.0" prefWidth="250.0" promptText="Customer ID" />
+      <JFXTextField fx:id="txtID" labelFloat="true" layoutX="112.0" layoutY="103.0" onAction="#btnSearch" onKeyReleased="#txtCustomerIDOnKeyReleased" prefHeight="29.0" prefWidth="250.0" promptText="Customer ID" />
       <JFXTextField fx:id="txtName" labelFloat="true" layoutX="475.0" layoutY="103.0" prefHeight="29.0" prefWidth="250.0" promptText="Customer Name" />
       <JFXTextField fx:id="txtAddress" labelFloat="true" layoutX="112.0" layoutY="170.0" prefHeight="29.0" prefWidth="250.0" promptText="Customer Address" />
       <JFXTextField fx:id="txtContact" labelFloat="true" layoutX="475.0" layoutY="170.0" prefHeight="29.0" prefWidth="250.0" promptText="Customer Contact" />
       <JFXTextField fx:id="txtNIC" labelFloat="true" layoutX="112.0" layoutY="246.0" prefHeight="29.0" prefWidth="250.0" promptText="Customer NIC" />
-      <JFXTextField fx:id="txtEmail" labelFloat="true" layoutX="475.0" layoutY="246.0" prefHeight="29.0" prefWidth="250.0" promptText="Customer Email" />
+      <JFXTextField fx:id="txtEmail" labelFloat="true" layoutX="475.0" layoutY="246.0" onKeyReleased="#txtCustomerEmailOnKeyReleased" prefHeight="29.0" prefWidth="250.0" promptText="Customer Email" />
       <JFXTextField fx:id="txtSalary" labelFloat="true" layoutX="112.0" layoutY="323.0" prefHeight="29.0" prefWidth="250.0" promptText="Customer Salary" />
       <JFXTextField fx:id="txtAge" labelFloat="true" layoutX="475.0" layoutY="323.0" prefHeight="29.0" prefWidth="250.0" promptText="Customer Age" />
       <TableView fx:id="tblCustomer" layoutX="17.0" layoutY="465.0" prefHeight="215.0" prefWidth="823.0">

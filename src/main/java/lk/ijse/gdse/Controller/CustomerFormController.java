@@ -14,9 +14,12 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import lk.ijse.gdse.Model.Customer;
 import lk.ijse.gdse.Model.TM.CustomerTM;
 import lk.ijse.gdse.Repo.CustomerRepo;
+import lk.ijse.gdse.Util.Regex;
+import lk.ijse.gdse.Util.TextField;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -131,11 +134,13 @@ public class CustomerFormController {
         String salary = txtSalary.getText();
         String age = txtAge.getText();
 
-        boolean isSaved = CustomerRepo.save(new Customer(id, name, address, contact, nic, email, salary, age));
+        if (isValied()) {
+            boolean isSaved = CustomerRepo.save(new Customer(id, name, address, contact, nic, email, salary, age));
 
-        if (isSaved) {
-            new Alert(Alert.AlertType.CONFIRMATION, "Saved!").show();
-            clear();
+            if (isSaved) {
+                new Alert(Alert.AlertType.CONFIRMATION, "Saved!").show();
+                clear();
+            }
         }
         loadAllCustomers();
     }
@@ -201,5 +206,18 @@ public class CustomerFormController {
         txtAge.clear();
     }
 
+    public void txtCustomerIDOnKeyReleased(KeyEvent keyEvent) {
+        Regex.setTextColor(TextField.ID,txtID);
+    }
+
+    public void txtCustomerEmailOnKeyReleased(KeyEvent keyEvent) {
+        Regex.setTextColor(TextField.EMAIL, txtEmail);
+    }
+
+    public boolean isValied(){
+        if (!Regex.setTextColor(TextField.ID,txtID)) return false;
+        if (!Regex.setTextColor(TextField.EMAIL,txtEmail)) return false;
+        return true;
+    }
 }
 

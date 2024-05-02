@@ -1,5 +1,8 @@
 package lk.ijse.gdse.Util;
 
+import com.jfoenix.controls.JFXTextField;
+import javafx.scene.paint.Paint;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -12,13 +15,13 @@ public class Regex {
 
         switch (textField){
             case ID:
-                filed = "^([A-Z0-9])$";
+                filed = "^([A-Z][0-9]{3})$";
                 break;
             case NAME:
                 filed = "^[A-z|\\\\s]{3,}$";
                 break;
             case EMAIL:
-                filed = "\\b[A-Z0-9._%-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}\\b";
+                filed = "^([A-z])([A-z0-9.]){1,}[@]([A-z0-9]){1,10}[.]([A-z]){2,5}$";
         }
 
         Pattern pattern = Pattern.compile(filed);
@@ -37,5 +40,17 @@ public class Regex {
             return true;
         }
         return false;
+    }
+
+    public static boolean setTextColor(TextField location, JFXTextField textField){
+        if (Regex.isTextFieldValid(location, textField.getText())){
+            textField.setFocusColor(Paint.valueOf("Green"));
+            textField.setUnFocusColor(Paint.valueOf("Green"));
+            return true;
+        }else {
+            textField.setFocusColor(Paint.valueOf("Red"));
+            textField.setUnFocusColor(Paint.valueOf("Red"));
+            return false;
+        }
     }
 }

@@ -12,3 +12,8 @@ create table customer(
     salary varchar(255),
     age varchar(255)
 );
+
+INSERT INTO customer VALUES('C003', 'John', 'Colombo', '0771234567', '123456789V', 'N0XKg@example.com', '10000', '30'),
+('C004', 'Jane', 'Colombo', '0771234567', '123456789V', 'N0XKg@example.com', '10000', '30'),
+('C005', 'Jim', 'Colombo', '0771234567', '123456789V', 'N0XKg@example.com', '10000', '30'),
+('C006', 'Jill', 'Colombo', '0771234567', '123456789V', 'N0XKg@example.com', '10000', '30');
